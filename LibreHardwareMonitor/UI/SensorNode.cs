@@ -230,7 +230,7 @@ public class SensorNode : Node
                                 {
                                     const int _1MB = 1048576;
 
-                                    result = value < _1MB ? $"{value / 1024:F1} KB/s" : $"{value / _1MB:F1} MB/s";
+                                    result = $"{value / _1MB:F1} MB/s";
 
                                     break;
                                 }
