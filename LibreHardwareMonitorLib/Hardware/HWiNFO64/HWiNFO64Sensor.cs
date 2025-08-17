@@ -57,4 +57,6 @@ internal class HWiNFO64Sensor : ISensor
             throw new ArgumentNullException(nameof(visitor));
         visitor.VisitSensor(this);
     }
+
+    public void Traverse(IVisitor visitor) { }
 }

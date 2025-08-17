@@ -129,5 +129,14 @@ internal class HWiNFO64Hardware : IHardware
         visitor.VisitHardware(this);
     }
 
+    public void Traverse(IVisitor visitor)
+    {
+        if (visitor == null)
+            throw new ArgumentNullException(nameof(visitor));
+
+        foreach (ISensor sensor in Sensors)
+            sensor.Accept(visitor);
+    }
+
     public void Close() { }
 }
