@@ -296,8 +296,7 @@ namespace LibreHardwareMonitor.UI
             this.hddMenuItem,
             this.nicMenuItem,
             this.psuMenuItem,
-            this.batteryMenuItem,
-            this.hwinfo64MenuItem});
+            this.batteryMenuItem});
             this.menuItemFileHardware.Name = "menuItem5";
             this.menuItemFileHardware.Size = new System.Drawing.Size(180, 22);
             this.menuItemFileHardware.Text = "Hardware";
@@ -1085,12 +1084,6 @@ namespace LibreHardwareMonitor.UI
             this.batteryMenuItem.Size = new System.Drawing.Size(180, 22);
             this.batteryMenuItem.Text = "Batteries";
             //
-            // hwinfo64MenuItem
-            //
-            this.hwinfo64MenuItem.Name = "hwinfo64MenuItem";
-            this.hwinfo64MenuItem.Size = new System.Drawing.Size(180, 22);
-            this.hwinfo64MenuItem.Text = "HWiNFO64";
-            //
             // MainForm
             //
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1224,7 +1217,6 @@ namespace LibreHardwareMonitor.UI
         private System.Windows.Forms.ToolStripMenuItem authWebServerMenuItem;
         private System.Windows.Forms.ToolStripMenuItem psuMenuItem;
         private System.Windows.Forms.ToolStripMenuItem batteryMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hwinfo64MenuItem;
         private System.ComponentModel.BackgroundWorker backgroundUpdater;
         private System.Windows.Forms.ToolStripMenuItem fileRotationMethod;
         private ToolStripRadioButtonMenuItem perSessionFileRotationMenuItem;
