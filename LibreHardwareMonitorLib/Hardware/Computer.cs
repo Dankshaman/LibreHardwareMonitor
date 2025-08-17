@@ -23,6 +23,7 @@ using LibreHardwareMonitor.Hardware.Motherboard;
 using LibreHardwareMonitor.Hardware.Network;
 using LibreHardwareMonitor.Hardware.Psu.Corsair;
 using LibreHardwareMonitor.Hardware.Storage;
+using LibreHardwareMonitor.Hardware.HWiNFO64;
 
 namespace LibreHardwareMonitor.Hardware;
 
@@ -47,6 +48,7 @@ public class Computer : IComputer
     private SMBios _smbios;
     private bool _storageEnabled;
     private bool _ring0Enabled = true;
+    private bool _hwinfo64Enabled;
 
     /// <summary>
     /// Creates a new <see cref="IComputer" /> instance with basic initial <see cref="Settings" />.
@@ -277,6 +279,24 @@ public class Computer : IComputer
             }
 
             _storageEnabled = value;
+        }
+    }
+
+    /// <inheritdoc />
+    public bool IsHWiNFO64Enabled
+    {
+        get { return _hwinfo64Enabled; }
+        set
+        {
+            if (_open && value != _hwinfo64Enabled)
+            {
+                if (value)
+                    Add(new HWiNFO64Group(_settings));
+                else
+                    RemoveType<HWiNFO64Group>();
+            }
+
+            _hwinfo64Enabled = value;
         }
     }
 
@@ -550,6 +570,9 @@ public class Computer : IComputer
 
         if (_batteryEnabled)
             Add(new BatteryGroup(_settings));
+
+        if (_hwinfo64Enabled)
+            Add(new HWiNFO64Group(_settings));
     }
 
     private static void NewSection(TextWriter writer)
