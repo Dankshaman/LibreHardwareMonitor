@@ -231,8 +231,11 @@ public sealed partial class MainForm : Form
         _readBatterySensors = new UserOption("batteryMenuItem", true, batteryMenuItem, _settings);
         _readBatterySensors.Changed += delegate { _computer.IsBatteryEnabled = _readBatterySensors.Value; };
 
-        _readHWiNFO64Sensors = new UserOption("hwinfo64MenuItem", true, hwinfo64MenuItem, _settings);
-        _readHWiNFO64Sensors.Changed += delegate { _computer.IsHWiNFO64Enabled = _readHWiNFO64Sensors.Value; };
+        if (hwinfo64MenuItem != null)
+        {
+            _readHWiNFO64Sensors = new UserOption("hwinfo64MenuItem", true, hwinfo64MenuItem, _settings);
+            _readHWiNFO64Sensors.Changed += delegate { _computer.IsHWiNFO64Enabled = _readHWiNFO64Sensors.Value; };
+        }
 
         _showGadget = new UserOption("gadgetMenuItem", false, gadgetMenuItem, _settings);
 
