@@ -24,7 +24,6 @@ internal class HWiNFO64Group : IGroup
 
     public void Close()
     {
-        foreach (IHardware hw in _hardware)
-            hw.Close();
+        // Nothing to do here
     }
 }

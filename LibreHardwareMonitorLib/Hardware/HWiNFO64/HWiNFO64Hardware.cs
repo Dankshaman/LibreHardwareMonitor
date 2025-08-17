@@ -22,7 +22,7 @@ internal class HWiNFO64Hardware : IHardware
         Update();
     }
 
-    public HardwareType HardwareType => HardwareType.Heatmaster;
+    public HardwareType HardwareType => HardwareType.HWiNFO64;
     public Identifier Identifier => new("hwinfo64");
     public string Name { get; set; } = "HWiNFO64";
     public IHardware Parent => null;
