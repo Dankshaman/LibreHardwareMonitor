@@ -45,6 +45,7 @@ public sealed partial class MainForm : Form
     private readonly UserOption _readNicSensors;
     private readonly UserOption _readPsuSensors;
     private readonly UserOption _readRamSensors;
+    private readonly UserOption _readHWiNFO64Sensors;
     private readonly Node _root;
     private readonly UserOption _runWebServer;
     private readonly UserRadioGroup _sensorValuesTimeWindow;
@@ -229,6 +230,9 @@ public sealed partial class MainForm : Form
 
         _readBatterySensors = new UserOption("batteryMenuItem", true, batteryMenuItem, _settings);
         _readBatterySensors.Changed += delegate { _computer.IsBatteryEnabled = _readBatterySensors.Value; };
+
+        _readHWiNFO64Sensors = new UserOption("hwinfo64MenuItem", true, hwinfo64MenuItem, _settings);
+        _readHWiNFO64Sensors.Changed += delegate { _computer.IsHWiNFO64Enabled = _readHWiNFO64Sensors.Value; };
 
         _showGadget = new UserOption("gadgetMenuItem", false, gadgetMenuItem, _settings);
 
